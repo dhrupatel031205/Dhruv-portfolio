@@ -2,283 +2,479 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dhruv Patel - Portfolio</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.14.0/devicon.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
     <style>
+        :root {
+            --primary-color: #7f5af0;
+            --background-dark: #0f0e17;
+            --background-light: #fffffe;
+            --text-dark: #fffffe;
+            --text-light: #2e2f3e;
+            --card-glass: rgba(255, 255, 255, 0.06);
+            --card-glass-light: rgba(0, 0, 0, 0.04);
+        }
+
+
+        * {
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #6e7bff, #ff64b3);
-            color: #fff;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-            padding: 0;
+            background: var(--background-dark);
+            color: var(--text-dark);
+            transition: background 0.3s, color 0.3s;
+            position: relative;
         }
 
-        .navbar {
-            background-color: #1e2a47;
+        body.light {
+            background: var(--background-light);
+            color: var(--text-light);
         }
 
-        .navbar a {
-            color: #fff;
-            font-size: 18px;
-            padding: 14px 20px;
-            font-weight: 500;
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
 
-        .navbar .navbar-brand {
-            font-size: 2rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .navbar-nav {
-            margin-left: auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-top: 30px;
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .card {
-            margin: 20px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        .card-body {
-            background-color: #1e2a47;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .profile-img {
-            width: 200px;
+        #theme-toggle {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            z-index: 1001;
+            background: var(--card-glass);
+            border: none;
+            padding: 8px 10px;
             border-radius: 50%;
-            margin: 20px 0;
+            color: white;
+            cursor: pointer;
         }
 
-        .btn-primary {
-            background-color: #ff64b3;
+        body.light #theme-toggle {
+            background: var(--card-glass-light);
+            color: #111;
+        }
+
+        /* Hero Section with Small Image Left */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-box {
+            margin-right: 2rem;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-img-small {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(255, 78, 205, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-img-large {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(127, 90, 240, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-img-large:hover {
+            transform: scale(1.08);
+        }
+
+        .hero-subtext {
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin-top: 0.75rem;
+            color: inherit;
+        }
+
+        .hero-img-small:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .btn-glass {
+            background-color: var(--primary-color);
             border: none;
             padding: 10px 20px;
             border-radius: 30px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-
-        .btn-primary:hover {
-            background-color: #ff3385;
-        }
-
-        .animated-btn {
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        footer {
-            background-color: #1e2a47;
             color: #fff;
-            padding: 20px;
+            box-shadow: 0 0 10px var(--primary-color);
+            transition: all 0.3s ease;
         }
 
-        .skills-section {
+        .btn-glass:hover {
+            background-color: #e6008c;
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        /* Section Titles & Cards */
+        .section-title {
             text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
         }
 
-        .skills-section img {
-            width: 100px;
-            margin: 20px;
-            transition: transform 0.3s;
+        .glass-card {
+            background: var(--card-glass);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            z-index: 2;
+            position: relative;
         }
 
-        .skills-section img:hover {
-            transform: scale(1.1);
+        body.light .glass-card {
+            background: var(--card-glass-light);
+            color: var(--text-light);
         }
 
-        /* Styles for <strong> tags to change color and size */
-        strong {
-            color: #ff64b3;
-            /* Bright pink color */
-            font-size: 1.2rem;
-            /* Slightly larger text */
+        /* Skills Grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            font-size: 3rem;
+        }
+
+        /* Footer */
+        footer .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 12px;
+            color: var(--primary-color);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            transform: scale(1.2);
+            color: #6246ea;
+            /* brighter hover */
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-box {
+                margin: 0 0 1.5rem 0;
+            }
+
+            .hero-img-large {
+                height: 300px;
+                width: 300px;
+            }
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">Dhruv Patel</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#education">Education</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#skills">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#achievements">Achievements</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#hackathons">Hackathons</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#open-source">Open Source</a>
-                </li>
-            </ul>
+    <div id="particles-js"></div>
+    <button id="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+    <section
+        class="hero-section container d-flex flex-column flex-md-row align-items-center justify-content-center text-center text-md-start">
+        <!-- Left: Enlarged Profile Image -->
+        <div class="profile-box me-md-5 mb-4 mb-md-0" data-aos="fade-right">
+            <img src="selfie.jpg" alt="Dhruv Patel" class="hero-img-large" />
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="container text-center my-5">
-        <img src="selfie.jpg" alt="Dhruv Patel" class="profile-img">
-        <h1 class="display-4">Dhruv Patel</h1>
-        <p class="lead">Web Developer | Problem Solver | IT Student </p>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="card">
-            <div class="card-body">
-                <p><strong>Phone:</strong> +91 90994 92577</p>
-                <p><strong>Email:</strong> <a href="mailto:d62077299@gmail.com"
-                        style="color: #ff64b3;">d62077299@gmail.com</a></p>
-                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/dhruv-rakeshkumar-patel-8b78992a5/"
-                        style="color: #ff64b3;">LinkedIn Profile</a></p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/dhrupatel031205" style="color: #ff64b3;">GitHub
-                        Profile</a></p>
-            </div>
+        <!-- Right: Intro Text -->
+        <div class="hero-text" data-aos="fade-left">
+            <h1 class="typewriter">Hi, I'm Dhruv Patel 👋</h1>
+            <p class="hero-subtext">I'm a passionate IT student and developer specializing in full-stack MERN
+                applications, AI, and mobile apps. I'm constantly learning and building cool things.</p>
+            <a href="#contact" class="btn btn-glass mt-3">Let's Connect</a>
         </div>
     </section>
-
-    <!-- Education Section -->
-    <section id="education" class="container">
-        <h2 class="section-title">Education</h2>
-        <div class="card">
-
-
-
-            <div class="card-body">
-                <p><strong>Jay Somnath School (2021-2023):</strong> 12th GSEB - PCM</p>
-                <p><strong>Total Marks (PCM):</strong> 211/300</p>
-                <p><strong>Percentage:</strong> 70.33%</p>
-                <p><strong>Percentile:</strong> 88.08%</p>
-                <p><strong>Lok Jagruti University (2023-2027):</strong> Information Technology, CGPA: 8.08</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Skills Section -->
-    <section id="skills" class="container skills-section">
+    <section id="skills" class="container py-5" data-aos="fade-up">
         <h2 class="section-title">Skills</h2>
-        <div>
-            <img src="html-1.svg" title="MERN Stack">
-            <img src="css-3.svg" title="MERN Stack">
-            <img src="javascript-1.svg" title="MERN Stack">
-            <img src="bootstrap-5-1.svg" title="MERN Stack">
-            <img src="react-2.svg" title="MERN Stack">
-            <img src="mongodb-icon-1.svg" title="MERN Stack">
-            <img src="nodejs-icon.svg" title="MERN Stack">
-            <img src="java logo.svg" alt="Java" title="Java">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python"
-                title="Python">
+        <div class="skills-grid">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-css3-plain colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+            <i class="devicon-react-original colored"></i>
+            <i class="devicon-nodejs-plain colored"></i>
+            <i class="devicon-mongodb-plain colored"></i>
+            <i class="devicon-java-plain colored"></i>
+            <i class="devicon-python-plain colored"></i>
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section class="container">
+    <!-- Projects Section -->
+    <section id="projects" class="container py-5" data-aos="fade-up">
+        <h2 class="section-title">Projects</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="glass-card h-100">
+                    <h5>DhruvFood</h5>
+                    <p>MERN food ordering system with admin dashboard.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card h-100">
+                    <h5>DhruvAssistant</h5>
+                    <p>Voice assistant using MERN + GPT-2 integration.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card h-100">
+                    <h5>Boss Level Studios</h5>
+                    <p>Flask game dashboard with leaderboard & auth.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card h-100">
+                    <h5>E-Granthalaya</h5>
+                    <p>Library system using Flask + database + UI.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card h-100">
+                    <h5>ProSportsWear</h5>
+                    <p>Android inventory app with Firebase & RecyclerView.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Certifications -->
+    <section id="certifications" class="container py-5" data-aos="fade-up">
         <h2 class="section-title">Certifications</h2>
-        <div class="card">
-            <div class="card-body">
-                <p><strong>Introduction to Java:</strong> <a
-                        href="https://www.coursera.org/account/accomplishments/verify/8WT2JXNA42AF"
-                        style="color: #ff64b3;">Link</a></p>
-                <p><strong>DSA with Java:</strong> <a
-                        href="https://www.coursera.org/account/accomplishments/verify/8WT2JXNA42AF"
-                        style="color: #ff64b3;">Link</a></p>
-                <p><strong>Introduction to MERN:</strong> <a
-                        href="https://www.simplilearn.com/free-mern-stack-program-skillup?utm_source=sharedcertificate&utm_medium=shared-course&utm_campaign=shared-certificate-course"
-                        style="color: #ff64b3;">Link</a></p>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <h5>Introduction to Java</h5>
+                    <p>Covered Java basics, OOP, and error handling.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <h5>DSA with Java</h5>
+                    <p>Worked with arrays, stacks, queues, and linked lists.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <h5>Introduction to MERN</h5>
+                    <p>Built full-stack apps using MongoDB, Express, React, and Node.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <h5>EDA for ML – IBM</h5>
+                    <p>Data cleaning, visualization & insights for ML models.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Achievements Section -->
-    <section id="achievements" class="container">
-        <h2 class="section-title">Achievements</h2>
-        <div class="card">
-            <div class="card-body">
-                <p><strong>Hackerrank Profile:</strong> <a href="https://www.hackerrank.com/profile/d62077299"
-                        style="color: #ff64b3;">Profile Link</a></p>
-                <p><strong>Conding Ninjas:</strong> <a href="https://www.naukri.com/code360/profile/drpatel"
-                        style="color: #ff64b3;">Profile Link</a></p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Hackathons Section -->
-    <section id="hackathons" class="container">
+    <!-- Hackathons -->
+    <section id="hackathons" class="container py-5" data-aos="fade-up">
         <h2 class="section-title">Hackathons</h2>
-        <div class="card">
-            <div class="card-body">
-                <p><strong>Tic Tech Toe 2k24 (27-29 Sept, 2024):</strong> Place: DAIICT, Gandhinagar. Developed EzClass
-                    with my team using MERN stack.</p>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <h5>Tic Tech Toe 2k24</h5>
+                    <p>Built <strong>EzClass</strong> using MERN Stack for automated class scheduling, tests, and marks.
+                        Held at DAIICT, Gandhinagar.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <h5>Hack-NU-Thon 6.0</h5>
+                    <p>Developed <strong>ByteBite</strong> – a MERN-based recipe AI system powered by 4 AI models to
+                        personalize user diets.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Open Source Section -->
-    <section id="open-source" class="container">
-        <h2 class="section-title">Open Source Contributor</h2>
-        <div class="card">
-            <div class="card-body">
-                <p><strong>Social Winter of Code (SWOC):</strong> Part-time, Nov 2024 - Present (Remote)</p>
-                <p><strong>Winter of Code (WOC):</strong> Part-time, Jan 2025 - Present (Remote)</p>
+    <!-- Open Source -->
+    <section id="opensource" class="container py-5" data-aos="fade-up">
+        <h2 class="section-title">Open Source Contributions</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <h5>Social Winter of Code (SWOC)</h5>
+                    <p>Contributed to open-source web projects. Focused on UI, bug fixes, and MERN-based backend
+                        integration. Nov 2024 – Present</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <h5>Winter of Code (WOC 4.0)</h5>
+                    <p>Worked on full-stack and UI enhancements in open-source educational tools using MongoDB, Express,
+                        React, and Node. Jan 2025 – Present</p>
+                </div>
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
-    <footer class="text-center py-4">
+    <footer class="text-center">
+        <div class="social-icons mb-3" id="contact">
+            <a href="mailto:d62077299@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/dhruv-rakeshkumar-patel-8b78992a5/" target="_blank"><i
+                    class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/dhrupatel031205" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
         <p>&copy; 2025 Dhruv Patel. All rights reserved.</p>
     </footer>
 
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        import { injectSpeedInsights } from '@vercel/speed-insights';
+        AOS.init();
 
-        injectSpeedInsights();
+        // Typewriter effect
+        const typewriter = document.querySelector('.typewriter');
+        if (typewriter) {
+            const text = typewriter.textContent;
+            typewriter.textContent = '';
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    typewriter.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 80);
+                }
+            }
+            type();
+        }
+
+        // Toggle dark/light theme
+        const toggle = document.getElementById("theme-toggle");
+        toggle.addEventListener("click", () => {
+            document.body.classList.toggle("light");
+            toggle.querySelector("i").classList.toggle("fa-sun");
+            toggle.querySelector("i").classList.toggle("fa-moon");
+        });
+
+        // Particle.js Loader with full config
+        function loadParticles(color, linkColor) {
+            if (window.pJSDom && window.pJSDom.length) {
+                window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                window.pJSDom = [];
+            }
+
+            particlesJS("particles-js", {
+                particles: {
+                    number: { value: 80 },
+                    color: { value: color },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5 },
+                    size: { value: 3 },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: linkColor,
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 1,
+                        direction: "none",
+                        random: false,
+                        straight: false,
+                        out_mode: "out"
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "grab" },
+                        onclick: { enable: false },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: { opacity: 0.5 }
+                        }
+                    }
+                },
+                retina_detect: true
+            });
+        }
+
+        // Initial load for dark mode
+        loadParticles("#ffffff", "#ffffff");
+
+        // Observer to switch particle colors on theme toggle
+        const observer = new MutationObserver(() => {
+            if (document.body.classList.contains("light")) {
+                loadParticles("#111111", "#111111");
+            } else {
+                loadParticles("#ffffff", "#ffffff");
+            }
+        });
+
+        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
