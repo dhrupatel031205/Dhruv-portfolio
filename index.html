@@ -219,6 +219,42 @@
             z-index: -1;
             pointer-events: none;
         }
+
+        .typewriter {
+            overflow: hidden;
+            /* border-right: 0.15em solid var(--primary-color); */
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
+            max-width: 100%;
+            display: inline-block;
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+
+            40%,
+            60% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: var(--primary-color);
+            }
+        }
     </style>
 </head>
 
@@ -243,7 +279,7 @@
     </section>
     <!-- Skills Section -->
     <section id="skills" class="container py-5" data-aos="fade-up">
-        <h2 class="section-title">Skills</h2>
+        <h1 class="section-title">Skills</h1>
         <div class="skills-grid">
             <i class="devicon-html5-plain colored"></i>
             <i class="devicon-css3-plain colored"></i>
@@ -258,35 +294,35 @@
 
     <!-- Projects Section -->
     <section id="projects" class="container py-5" data-aos="fade-up">
-        <h2 class="section-title">Projects</h2>
+        <h1 class="section-title">Projects</h1>
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="glass-card h-100">
-                    <h5>DhruvFood</h5>
+                    <h3>DhruvFood</h3>
                     <p>MERN food ordering system with admin dashboard.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="glass-card h-100">
-                    <h5>DhruvAssistant</h5>
+                    <h3>DhruvAssistant</h3>
                     <p>Voice assistant using MERN + GPT-2 integration.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="glass-card h-100">
-                    <h5>Boss Level Studios</h5>
+                    <h3>Boss Level Studios</h3>
                     <p>Flask game dashboard with leaderboard & auth.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="glass-card h-100">
-                    <h5>E-Granthalaya</h5>
+                    <h3>E-Granthalaya</h3>
                     <p>Library system using Flask + database + UI.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="glass-card h-100">
-                    <h5>ProSportsWear</h5>
+                    <h3>ProSportsWear</h3>
                     <p>Android inventory app with Firebase & RecyclerView.</p>
                 </div>
             </div>
@@ -296,30 +332,30 @@
 
     <!-- Certifications -->
     <section id="certifications" class="container py-5" data-aos="fade-up">
-        <h2 class="section-title">Certifications</h2>
+        <h1 class="section-title">Certifications</h1>
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
                 <div class="glass-card h-100">
-                    <h5>Introduction to Java</h5>
+                    <h3>Introduction to Java</h3>
                     <p>Covered Java basics, OOP, and error handling.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="glass-card h-100">
-                    <h5>DSA with Java</h5>
+                    <h3>DSA with Java</h3>
                     <p>Worked with arrays, stacks, queues, and linked lists.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="glass-card h-100">
-                    <h5>Introduction to MERN</h5>
+                    <h3>Introduction to MERN</h3>
                     <p>Built full-stack apps using MongoDB, Express, React, and Node.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="glass-card h-100">
-                    <h5>EDA for ML – IBM</h5>
-                    <p>Data cleaning, visualization & insights for ML models.</p>
+                    <h3>EDA for ML – IBM</h5>
+                        <p>Data cleaning, visualization & insights for ML models.</p>
                 </div>
             </div>
         </div>
@@ -328,18 +364,18 @@
 
     <!-- Hackathons -->
     <section id="hackathons" class="container py-5" data-aos="fade-up">
-        <h2 class="section-title">Hackathons</h2>
+        <h1 class="section-title">Hackathons</h1>
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
                 <div class="glass-card h-100">
-                    <h5>Tic Tech Toe 2k24</h5>
+                    <h3>Tic Tech Toe 2k24</h3>
                     <p>Built <strong>EzClass</strong> using MERN Stack for automated class scheduling, tests, and marks.
                         Held at DAIICT, Gandhinagar.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="glass-card h-100">
-                    <h5>Hack-NU-Thon 6.0</h5>
+                    <h3>Hack-NU-Thon 6.0</h3>
                     <p>Developed <strong>ByteBite</strong> – a MERN-based recipe AI system powered by 4 AI models to
                         personalize user diets.</p>
                 </div>
@@ -349,18 +385,18 @@
 
     <!-- Open Source -->
     <section id="opensource" class="container py-5" data-aos="fade-up">
-        <h2 class="section-title">Open Source Contributions</h2>
+        <h1 class="section-title">Open Source Contributions</h1>
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
                 <div class="glass-card h-100">
-                    <h5>Social Winter of Code (SWOC)</h5>
+                    <h3>Social Winter of Code (SWOC)</h3>
                     <p>Contributed to open-source web projects. Focused on UI, bug fixes, and MERN-based backend
                         integration. Nov 2024 – Present</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="glass-card h-100">
-                    <h5>Winter of Code (WOC 4.0)</h5>
+                    <h3>Winter of Code(WOC 4.0)</h3>
                     <p>Worked on full-stack and UI enhancements in open-source educational tools using MongoDB, Express,
                         React, and Node. Jan 2025 – Present</p>
                 </div>
@@ -376,6 +412,7 @@
             <a href="https://www.linkedin.com/in/dhruv-rakeshkumar-patel-8b78992a5/" target="_blank"><i
                     class="fab fa-linkedin-in"></i></a>
             <a href="https://github.com/dhrupatel031205" target="_blank"><i class="fab fa-github"></i></a>
+            
         </div>
         <p>&copy; 2025 Dhruv Patel. All rights reserved.</p>
     </footer>
